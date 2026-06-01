@@ -2,11 +2,9 @@
 
 **Around The U.S.** is a photo gallery web application built at TripleTen with **HTML**, **CSS**, **TypeScript**, and **Object-Oriented Programming (OOP)**. The project uses **BEM**, **responsive design**, and a modular TypeScript class-based structure for popups, cards, form validation, and user info management.
 
-## Live Demo
+## [🔗 Live Demo](https://ricardotrejosanjuan.github.io/web_project_around/)
 
-<https://ricardotrejosanjuan.github.io/web_project_around_es/>
-
-![Around The U.S. Screenshot](./images/Screenshot.png)
+![Around The U.S. Screenshot](./public/images/Screenshot.png)
 
 ## Current Features
 
@@ -73,6 +71,16 @@
 └── README.md
 ```
 
+## Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/ricardotrejosanjuan/web_project_around.git
+cd web_project_around
+tsc -w
+```
+
 ## Recent Changes
 
 ### Version 2.0.0 - 2026-06-01
@@ -89,6 +97,16 @@
 - Integrated strict type definitions (`src/types/types.ts`) for data entities and form configurations.
 - Set up a build workflow using a custom `tsconfig.json` to compile files from `src/` to `public/`.
 
+## Future Improvements
+
+- [ ] Persist cards using a REST API.
+- [ ] User authentication.
+- [ ] Store likes per user.
+- [ ] Edit card information.
+- [ ] Unit testing with Jest.
+- [ ] End-to-end testing with Playwright.
+- [ ] Webpack/Vite migration.
+
 ## Versions
 
 | Version | Date       | Description                                               |
@@ -102,4 +120,3 @@
 ## Author
 
 Ricardo Trejo
-
