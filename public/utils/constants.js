@@ -27,7 +27,7 @@ export const initialCards = [
         link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
     },
 ];
-export const placeholderImage = "./images/placeholder.jpg";
+export const placeholderImage = "./public/images/placeholder.jpg";
 export const withoutText = "Sin título";
 export const defaultFormConfig = {
     // Form Selector

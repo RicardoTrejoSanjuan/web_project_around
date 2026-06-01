@@ -30,7 +30,7 @@ export const initialCards: ICardData[] = [
   },
 ];
 
-export const placeholderImage: string = "./images/placeholder.jpg";
+export const placeholderImage: string = "./public/images/placeholder.jpg";
 export const withoutText: string = "Sin título";
 
 export const defaultFormConfig = {
