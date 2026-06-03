@@ -40,7 +40,10 @@ const main = () => {
     });
     // Add Card Popup
     const addCardPopup = new PopupWithForm("#new-card-popup", (inputValues) => {
-        const cardElement = createCard(inputValues);
+        const cardElement = createCard({
+            name: inputValues["place-name"] || "",
+            link: inputValues.link,
+        });
         cardSection.addItem(cardElement, "prepend");
         addCardPopup.close();
     });

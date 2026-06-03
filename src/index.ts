@@ -57,7 +57,10 @@ const main = () => {
   const addCardPopup = new PopupWithForm<ICardData>(
     "#new-card-popup",
     (inputValues: ICardData) => {
-      const cardElement = createCard(inputValues);
+      const cardElement = createCard({
+        name: inputValues["place-name"] || "",
+        link: inputValues.link,
+      });
       cardSection.addItem(cardElement, "prepend");
       addCardPopup.close();
     },

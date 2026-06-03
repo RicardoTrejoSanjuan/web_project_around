@@ -4,6 +4,7 @@ export interface INamedEntity {
 
 export interface ICardData extends INamedEntity {
   link: string;
+  "place-name"?: string;
 }
 
 export interface IUserInfo extends INamedEntity {
