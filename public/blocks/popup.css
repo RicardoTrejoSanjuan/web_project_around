@@ -73,11 +73,11 @@
   padding: 34px 36px;
 }
 
-.popup__with_confirmation {
+.popup__content_with_confirmation {
   min-height: 181px;
 }
 
-.popup__edit-avatar {
+.popup__content_edit-avatar {
   min-height: 181px;
 }
 
