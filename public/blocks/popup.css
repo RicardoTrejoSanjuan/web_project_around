@@ -26,6 +26,11 @@
   margin-top: 48px;
 }
 
+.popup__button_type_delete,
+.popup__button_type_edit-avatar {
+  margin-top: 0;
+}
+
 .popup__button:hover:not([disabled]) {
   background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
@@ -66,6 +71,14 @@
   position: relative;
   box-sizing: border-box;
   padding: 34px 36px;
+}
+
+.popup__with_confirmation {
+  min-height: 181px;
+}
+
+.popup__edit-avatar {
+  min-height: 181px;
 }
 
 .popup__form {

@@ -1,6 +1,6 @@
 import { Popup } from "./Popup.js";
-import type { ICardData } from "../types/types.js";
-import { selector } from "../utils/constants.js";
+import type { ICardData } from "../../types/types.js";
+import { selector } from "../../utils/constants.js";
 
 export class PopupWithImage extends Popup {
   constructor(selector: string) {

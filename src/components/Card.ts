@@ -1,4 +1,7 @@
+import { Api } from "./Api.js";
 import type { ICardData } from "../types/types.js";
+import { apiConfig } from "../utils/constants.js";
+import { PopupWithForm } from "./popups/PopupWithForm.js";
 
 export class Card {
   private selector: string;
@@ -9,11 +12,13 @@ export class Card {
   private likeButton!: HTMLButtonElement;
   private deleteButton!: HTMLButtonElement;
   private title!: HTMLElement;
+  private api: Api;
 
   constructor(item: ICardData, selector: string, handleCardClick: () => void) {
     this.selector = selector;
     this.item = item;
     this.handleCardClick = handleCardClick;
+    this.api = new Api(apiConfig);
   }
 
   private getTemplate(): HTMLElement {
@@ -46,6 +51,7 @@ export class Card {
     this.title.textContent = this.item.name;
 
     this.setEventListeners();
+    this.setLikeButtonState();
     return this.element;
   }
 
@@ -57,13 +63,43 @@ export class Card {
     });
   }
 
-  // Event listener for like button
-  private handleLike(): void {
-    this.likeButton.classList.toggle("card__like-button_is-active");
+  // Handle like button click
+  private async handleLike(): Promise<void> {
+    try {
+      if (this.item.isLiked) {
+        this.item = await this.api.unlikeCard(this.item._id);
+      } else {
+        this.item = await this.api.likeCard(this.item._id);
+      }
+      this.setLikeButtonState();
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  // Set like button state
+  private setLikeButtonState(): void {
+    if (this.item.isLiked) {
+      this.likeButton.classList.add("card__like-button_is-active");
+    } else {
+      this.likeButton.classList.remove("card__like-button_is-active");
+    }
   }
 
   // Event listener for delete button
   private handleDelete(): void {
-    this.element.remove();
+    const deletePopup = new PopupWithForm("#delete-popup", async () => {
+      try {
+        deletePopup.setButtonText("Eliminando...");
+        await this.api.deleteCard(this.item._id);
+        this.element.remove();
+      } catch (error) {
+        console.error("Error:", error);
+      } finally {
+        deletePopup.setButtonText("Sí");
+        deletePopup.close();
+      }
+    });
+    deletePopup.open();
   }
 }

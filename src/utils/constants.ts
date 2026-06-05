@@ -1,34 +1,4 @@
-import type { ICardData } from "../types/types.js";
-
-/**
- *  DATA: Initial Cards
- */
-export const initialCards: ICardData[] = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
+import type { IApiConfig } from "../types/types.js";
 
 export const placeholderImage: string = "./public/images/placeholder.jpg";
 export const withoutText: string = "Sin título";
@@ -63,4 +33,12 @@ export const selector = {
 
   // Is Opened Class
   isOpenedClass: "popup_is-opened",
+};
+
+export const apiConfig: IApiConfig = {
+  baseUrl: "https://around-api.es.tripleten-services.com/v1",
+  headers: {
+    authorization: "0eb2eccc-2f17-46a0-8165-2b6720560b6c",
+    "Content-Type": "application/json",
+  },
 };

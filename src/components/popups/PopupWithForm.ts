@@ -59,8 +59,13 @@ export class PopupWithForm<T> extends Popup {
   public getInputValues(): T {
     const values: T = {} as T;
     this.inputList.forEach((input: HTMLInputElement) => {
-      values[input.name as keyof T] = input.value as any;
+      const key = input.name as keyof T;
+      values[key] = input.value as unknown as T[typeof key];
     });
     return values;
+  }
+
+  public setButtonText(text: string): void {
+    this.submitButton.textContent = text;
   }
 }

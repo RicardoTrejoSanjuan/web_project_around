@@ -1,14 +1,19 @@
-export interface INamedEntity {
+export interface ICardData {
+  isLiked: boolean;
   name: string;
-}
-
-export interface ICardData extends INamedEntity {
+  _id: string;
   link: string;
+  owner: string;
+  createdAt: string;
   "place-name"?: string;
 }
 
-export interface IUserInfo extends INamedEntity {
-  description: string;
+export interface IUserInfo {
+  about: string;
+  avatar: string;
+  name: string;
+  description?: string;
+  _id: string;
 }
 
 export interface FormValues {
@@ -22,4 +27,9 @@ export interface IValidationConfig {
   inactiveButtonClass: string;
   inputErrorClass: string;
   errorClass: string;
+}
+
+export interface IApiConfig {
+  baseUrl: string;
+  headers: Record<string, string>;
 }

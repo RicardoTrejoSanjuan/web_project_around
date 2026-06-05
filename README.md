@@ -8,15 +8,16 @@
 
 ## Current Features
 
-- Edit profile information through a form popup.
-- Create new cards through a form popup.
-- Dynamically render cards using a class-based `Section` renderer.
-- Like and delete cards.
-- Open images in an enlarged popup view using a specialized image popup class.
-- Close modals with the close button, overlay click, and `Escape` key.
-- Real-time form validation through a reusable `FormValidator` class.
-- Disabled submit buttons when forms are invalid.
-- Clear validation errors when reopening forms.
+- **REST API Integration**: Load and save profile data, user avatar, and cards dynamically from a remote server.
+- **Card Management**: Create new cards, like/unlike, and delete cards with server-side synchronization.
+- **Interactive Modals**:
+  - Edit profile information through a form popup.
+  - Change profile avatar image via a dedicated input form popup.
+  - Delete cards securely with a confirmation popup dialog.
+  - Open images in an enlarged popup view with captions.
+  - Close modals via the close button, clicking the overlay, or pressing the `Escape` key.
+- **Object-Oriented Component Architecture**: Reusable, class-based modules for `Card`, `Section`, `UserInfo`, `Api`, and `Popup` subtypes.
+- **Form Validation**: Real-time validation with the `FormValidator` class, disabling submit buttons when inputs are invalid and clearing errors when forms are reopened.
 
 ## Technologies
 
@@ -50,19 +51,27 @@
 │   ├── index.html
 │   └── index.js
 ├── src
+│   ├── app
+│   │   ├── App.ts
+│   │   ├── createCardFactory.ts
+│   │   ├── setupEventListeners.ts
+│   │   └── setupValidation.ts
 │   ├── components
+│   │   ├── popups
+│   │   │   ├── Popup.ts
+│   │   │   ├── PopupWithForm.ts
+│   │   │   └── PopupWithImage.ts
 │   │   ├── Card.ts
 │   │   ├── FormValidator.ts
-│   │   ├── Popup.ts
-│   │   ├── PopupWithForm.ts
-│   │   ├── PopupWithImage.ts
+│   │   ├── index.ts
 │   │   ├── Section.ts
 │   │   └── UserInfo.ts
+│   │   └── Api.ts
 │   ├── types
 │   │   └── types.ts
 │   ├── utils
 │   │   ├── constants.ts
-│   │   └── utils.ts
+│   │   └── selectors.ts
 │   └── index.ts
 ├── tsconfig.json
 ├── .editorconfig
@@ -83,6 +92,14 @@ tsc -w
 
 ## Recent Changes
 
+### Version 3.0.0 - 2026-06-04
+
+- **REST API Integration**: Built a custom `Api` class to handle remote calls for fetching cards and user info, updating details, managing likes, and deleting cards.
+- **Profile Avatar Updates**: Added functionality to change the profile image via a dedicated popup modal, persisting the change on the server.
+- **Confirmation Modal for Deletion**: Implemented a confirmation dialog (`#delete-popup`) that prompts users before removing a card, ensuring data integrity.
+- **Liking & Unliking System**: Synchronized user likes with the server using `PUT` and `DELETE` requests, updating the count/UI state dynamically.
+- **Clean Architecture Refactoring**: Reorganized files into distinct modular domains (`src/app/`, `src/components/popups/`, `src/services/`) and streamlined `src/index.ts` to coordinate loading and initialization through the new `App` class.
+
 ### Version 2.0.0 - 2026-06-01
 
 - Refactored the entire project to **TypeScript** and **Object-Oriented Programming (OOP)**.
@@ -99,10 +116,8 @@ tsc -w
 
 ## Future Improvements
 
-- [ ] Persist cards using a REST API.
 - [ ] User authentication.
-- [ ] Store likes per user.
-- [ ] Edit card information.
+- [ ] Edit card details after creation.
 - [ ] Unit testing with Jest.
 - [ ] End-to-end testing with Playwright.
 - [ ] Webpack/Vite migration.
@@ -116,6 +131,7 @@ tsc -w
 | 1.0.3   | 2026-04-30 | Added initial cards, image popup, like and delete actions |
 | 1.0.4   | 2026-05-21 | Modularized JavaScript and added form validation          |
 | 2.0.0   | 2026-06-01 | Migrated project to TypeScript and OOP architecture       |
+| 3.0.0   | 2026-06-04 | Integrated REST API, avatar edits, confirmation popups    |
 
 ## Author
 

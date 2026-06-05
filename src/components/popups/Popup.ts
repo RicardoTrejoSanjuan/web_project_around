@@ -1,4 +1,4 @@
-import { selector } from "../utils/constants.js";
+import { selector } from "../../utils/constants.js";
 
 export class Popup {
   protected popupElement!: HTMLElement;
